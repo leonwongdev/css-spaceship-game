@@ -1,0 +1,480 @@
+:root {
+  /*  */
+  --coin-move-speed: 2.5s;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+#scoreboard {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  color: white;
+  font-size: 2rem;
+}
+
+/* Game over logic */
+#game-screen {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+}
+
+#gameOverTitle {
+  display: none;
+}
+
+/* .rock:hover ~ #game-over,
+#game-over:hover {
+  display: block;
+} */
+
+#game-board {
+  background-color: black;
+  color: white;
+}
+
+#game-board {
+  width: 100%;
+  height: 100%;
+  display: none;
+  grid-template-columns: repeat(8, 1fr); /* Adjust width of columns as needed */
+  grid-template-rows: repeat(
+    5,
+    1fr
+  ); /* Adjust height of rows as needed */ /* Adjust the gap between cells as needed */
+}
+
+.grid-item {
+  /* border: 1px solid red;  */
+  text-align: center;
+  font-size: 16px;
+  color: black;
+}
+
+#spaceship {
+  position: absolute;
+  width: 12.5%;
+  height: 20%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+#spaceship img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  animation: spaceship-fly 1.5s ease infinite alternate;
+  /* transform: rotateX(45deg) rotateY(15deg); */
+}
+
+@keyframes spaceship-fly {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.space-object {
+  position: absolute;
+  /* width: 12.5%; */
+  height: 13%;
+  /* aspect-ratio: 1; */
+  object-fit: contain;
+  /* animation: rotate 3s linear infinite; */
+  /* border: 1px solid red; */
+  pointer-events: auto;
+}
+
+.coin {
+  height: 20%;
+}
+
+.coin:hover {
+  transform: scale(1.2);
+}
+
+#rock-1 {
+  position: absolute;
+  top: 3%;
+  left: 100%;
+  animation: move-horizontally 5s linear infinite, rotate 3s linear infinite;
+}
+
+#rock-2 {
+  position: absolute;
+  top: 23%;
+  left: 100%;
+  animation: move-horizontally 5s linear infinite, rotate 3s linear infinite;
+  animation-delay: 4s;
+}
+
+#rock-3 {
+  position: absolute;
+  top: 43%;
+  left: 100%;
+  animation: move-horizontally 5s linear infinite, rotate 3s linear infinite;
+  animation-delay: 12s;
+}
+
+#rock-4 {
+  position: absolute;
+  top: 63%;
+  left: 100%;
+  animation: move-horizontally 5s linear infinite, rotate 3s linear infinite;
+  animation-delay: 10s;
+}
+
+#rock-5 {
+  position: absolute;
+  top: 83%;
+  left: 100%;
+  animation: move-horizontally 5s linear infinite, rotate 3s linear infinite;
+  animation-delay: 3s;
+}
+
+#coin-1 {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  animation: move-horizontally var(--coin-move-speed) linear infinite,
+    rotateCoin 3s linear infinite;
+  animation-delay: 1s;
+}
+
+#coin-2 {
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  animation: move-horizontally var(--coin-move-speed) linear infinite,
+    rotateCoin 3s linear infinite;
+  animation-delay: 0s;
+}
+
+#coin-3 {
+  position: absolute;
+  top: 40%;
+  left: 100%;
+  animation: move-horizontally var(--coin-move-speed) linear infinite,
+    rotateCoin 3s linear infinite;
+  animation-delay: 10s;
+}
+
+#coin-4 {
+  position: absolute;
+  top: 60%;
+  left: 100%;
+  animation: move-horizontally var(--coin-move-speed) linear infinite,
+    rotateCoin 3s linear infinite;
+  animation-delay: 6s;
+}
+
+#coin-5 {
+  position: absolute;
+  top: 80%;
+  left: 100%;
+  animation: move-horizontally var(--coin-move-speed) linear infinite,
+    rotateCoin 3s linear infinite;
+  animation-delay: 9s;
+}
+
+@keyframes rotate {
+  /* Rotate the element from 0 to 360 degrees */
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-horizontally {
+  0% {
+    right: 100vw;
+  }
+  100% {
+    left: -10vw;
+  }
+}
+
+@keyframes rotateCoin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 1s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+/*
+.square-1:hover ~ #spaceship {
+  top: 0;
+  left: 0;
+}
+
+.square-2:hover ~ #spaceship {
+  top: 0;
+  left: 12.5%;
+}
+
+.square-3:hover ~ #spaceship {
+  top: 0;
+  left: 25%;
+}
+
+.square-4:hover ~ #spaceship {
+  top: 0;
+  left: 37.5%;
+}
+
+.square-5:hover ~ #spaceship {
+  top: 0;
+  left: 50%;
+}
+
+.square-6:hover ~ #spaceship {
+  top: 0;
+  left: 62.5%;
+}
+
+.square-7:hover ~ #spaceship {
+  top: 0;
+  left: 75%;
+}
+
+.square-8:hover ~ #spaceship {
+  top: 0;
+  left: 87.5%;
+}
+
+.square-9:hover ~ #spaceship {
+  top: 20%;
+  left: 0;
+}
+
+.square-10:hover ~ #spaceship {
+  top: 20%;
+  left: 12.5%;
+}
+
+.square-11:hover ~ #spaceship {
+  top: 20%;
+  left: 25%;
+}
+
+.square-12:hover ~ #spaceship {
+  top: 20%;
+  left: 37.5%;
+}
+
+.square-13:hover ~ #spaceship {
+  top: 20%;
+  left: 50%;
+}
+
+.square-14:hover ~ #spaceship {
+  top: 20%;
+  left: 62.5%;
+}
+
+.square-15:hover ~ #spaceship {
+  top: 20%;
+  left: 75%;
+}
+
+.square-16:hover ~ #spaceship {
+  top: 20%;
+  left: 87.5%;
+}
+
+.square-17:hover ~ #spaceship {
+  top: 40%;
+  left: 0;
+}
+
+.square-18:hover ~ #spaceship {
+  top: 40%;
+  left: 12.5%;
+}
+
+.square-19:hover ~ #spaceship {
+  top: 40%;
+  left: 25%;
+}
+
+.square-20:hover ~ #spaceship {
+  top: 40%;
+  left: 37.5%;
+}
+
+.square-21:hover ~ #spaceship {
+  top: 40%;
+  left: 50%;
+}
+
+.square-22:hover ~ #spaceship {
+  top: 40%;
+  left: 62.5%;
+}
+
+.square-23:hover ~ #spaceship {
+  top: 40%;
+  left: 75%;
+}
+
+.square-24:hover ~ #spaceship {
+  top: 40%;
+  left: 87.5%;
+}
+
+.square-25:hover ~ #spaceship {
+  top: 60%;
+  left: 0;
+}
+
+.square-26:hover ~ #spaceship {
+  top: 60%;
+  left: 12.5%;
+}
+
+.square-27:hover ~ #spaceship {
+  top: 60%;
+  left: 25%;
+}
+
+.square-28:hover ~ #spaceship {
+  top: 60%;
+  left: 37.5%;
+}
+
+.square-29:hover ~ #spaceship {
+  top: 60%;
+  left: 50%;
+}
+
+.square-30:hover ~ #spaceship {
+  top: 60%;
+  left: 62.5%;
+}
+
+.square-31:hover ~ #spaceship {
+  top: 60%;
+  left: 75%;
+}
+
+.square-32:hover ~ #spaceship {
+  top: 60%;
+  left: 87.5%;
+}
+
+.square-33:hover ~ #spaceship {
+  top: 80%;
+  left: 0;
+}
+
+.square-34:hover ~ #spaceship {
+  top: 80%;
+  left: 12.5%;
+}
+
+.square-35:hover ~ #spaceship {
+  top: 80%;
+  left: 25%;
+}
+
+.square-36:hover ~ #spaceship {
+  top: 80%;
+  left: 37.5%;
+}
+
+.square-37:hover ~ #spaceship {
+  top: 80%;
+  left: 50%;
+}
+
+.square-38:hover ~ #spaceship {
+  top: 80%;
+  left: 62.5%;
+}
+
+.square-39:hover ~ #spaceship {
+  top: 80%;
+  left: 75%;
+}
+
+.square-40:hover ~ #spaceship {
+  top: 80%;
+  left: 87.5%;
+}
+*/
+
+/* .meteor {
+  position: absolute;
+  top: 20px;
+  left: 110%;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  animation: meteorMove 1s linear infinite;
+}
+@keyframes meteorMove {
+  0% {
+    left: 110%;
+    opacity: 1;
+  }
+  100% {
+    left: -10%;
+    opacity: 0;
+  }
+} */
