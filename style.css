@@ -66,6 +66,12 @@ body {
   ); /* Adjust height of rows as needed */ /* Adjust the gap between cells as needed */
 }
 
+#playBtn {
+  width: 25vw;
+  height: 2rem;
+  background-color: lightgreen;
+}
+
 .grid-item {
   /* border: 1px solid red;  */
   text-align: center;
