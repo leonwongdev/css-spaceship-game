@@ -1,6 +1,7 @@
 window.onload = function () {
   let score = 0;
   const startScreen = document.getElementById("game-screen");
+  const gameOverScreen = document.getElementById("gameOverScreen");
   const gameOverMsg = document.getElementById("gameOverMsg");
   const gameOverTitle = document.getElementById("gameOverTitle");
   const playBtn = document.getElementById("playBtn");
@@ -16,8 +17,7 @@ window.onload = function () {
   // display the game board
   playBtn.onclick = function () {
     startScreen.style.display = "none";
-    gameOverTitle.style.display = "none";
-    gameOverMsg.style.display = "none";
+    gameOverScreen.style.display = "none";
     score = 0;
     scoreboard.innerHTML = "Score: 0";
     gameBoard.style.display = "grid";
@@ -58,8 +58,8 @@ window.onload = function () {
     const rock = rocks[index];
     rock.onmouseover = function (e) {
       startScreen.style.display = "block";
-      gameOverTitle.style.display = "block";
-      gameOverMsg.style.display = "block";
+      gameOverScreen.style.display = "block";
+      gameOverScreen.style.color = "red";
       gameOverMsg.innerHTML = `Game Over! You spaceship crashed into an asteroid. You score is ${score}`;
       //   console.log("hit rock");
     };
