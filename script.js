@@ -1,5 +1,6 @@
 window.onload = function () {
   let score = 0;
+  let highestScore = 0;
   const startScreen = document.getElementById("game-screen");
   const gameOverScreen = document.getElementById("gameOverScreen");
   const gameOverMsg = document.getElementById("gameOverMsg");
@@ -9,6 +10,9 @@ window.onload = function () {
   const rocks = document.getElementsByClassName("rock");
   const coins = document.getElementsByClassName("coin");
   const scoreboard = document.getElementById("scoreboard");
+  const timerEle = document.getElementById("timer");
+  let timer = null;
+  let gameTime = 30;
   const gridItems = document.getElementsByClassName("grid-item");
   const spaceship = document.getElementById("spaceship");
 
@@ -21,6 +25,30 @@ window.onload = function () {
     score = 0;
     scoreboard.innerHTML = "Score: 0";
     gameBoard.style.display = "grid";
+
+    // Reset the timer if timer already set
+    if (timer) {
+      console.log("clear timer:", timer);
+      clearInterval(timer);
+    }
+    gameTime = 30;
+    // Start a new timer when the game begins
+    timer = setInterval(() => {
+      gameTime -= 1;
+      timerEle.innerHTML = `Time Remain: ${gameTime}s`;
+
+      // Ends game when 30s is passed
+      if (gameTime <= 0) {
+        clearInterval(timer);
+        startScreen.style.display = "block";
+        gameOverScreen.style.display = "block";
+        gameBoard.style.display = "none";
+        gameOverScreen.style.color = "lightgreen";
+        highestScore = Math.max(score, highestScore);
+        gameOverMsg.innerHTML = `Congrats! You spaceship safely finished the trip. You score is ${score}. Your highest score is ${highestScore}`;
+      }
+    }, 1000);
+
     // location.reload();
   };
 
@@ -59,8 +87,10 @@ window.onload = function () {
     rock.onmouseover = function (e) {
       startScreen.style.display = "block";
       gameOverScreen.style.display = "block";
-      gameOverScreen.style.color = "red";
-      gameOverMsg.innerHTML = `Game Over! You spaceship crashed into an asteroid. You score is ${score}`;
+      gameBoard.style.display = "none";
+      gameOverScreen.style.color = "orangered";
+      highestScore = Math.max(score, highestScore);
+      gameOverMsg.innerHTML = `Game Over! You spaceship crashed into an asteroid. You score is ${score}. Your highest score is ${highestScore}`;
       //   console.log("hit rock");
     };
   }
