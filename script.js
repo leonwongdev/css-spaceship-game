@@ -40,6 +40,9 @@ window.onload = function () {
       // Ends game when 30s is passed
       if (gameTime <= 0) {
         clearInterval(timer);
+        // display tutorial screen
+        // hides the gameboard
+
         startScreen.style.display = "block";
         gameOverScreen.style.display = "block";
         gameBoard.style.display = "none";
@@ -48,8 +51,6 @@ window.onload = function () {
         gameOverMsg.innerHTML = `Congrats! You spaceship safely finished the trip. You score is ${score}. Your highest score is ${highestScore}`;
       }
     }, 1000);
-
-    // location.reload();
   };
 
   const squarePositionArray = [];
@@ -61,6 +62,7 @@ window.onload = function () {
     const squareIndex = index + 1;
     square.classList.add(`square-${squareIndex}`);
 
+    // Pre-calculate the position of the spaceship to see if performance can be improved
     const row = Math.floor(squareIndex / 8);
     const col = squareIndex % 8 === 0 ? 7 : (squareIndex % 8) - 1;
     const pos = {
@@ -69,12 +71,8 @@ window.onload = function () {
     };
     squarePositionArray.push(pos);
     square.dataset.index = index;
-    // square.dataset.left = 12.5 * col;
-    // square.dataset.top = 20 * row;
     square.onmouseover = function () {
       const eventIndex = square.dataset.index;
-      //   spaceship.style.left = `${12.5 * square.dataset.col}%`;
-      //   spaceship.style.top = `${20 * square.dataset.row}%`;
       spaceship.style.left = `${squarePositionArray[eventIndex].left}%`;
       spaceship.style.top = `${squarePositionArray[eventIndex].top}%`;
     };
@@ -85,6 +83,8 @@ window.onload = function () {
   for (let index = 0; index < rocks.length; index++) {
     const rock = rocks[index];
     rock.onmouseover = function (e) {
+      // Shows game over screen
+      // hide game board
       startScreen.style.display = "block";
       gameOverScreen.style.display = "block";
       gameBoard.style.display = "none";
@@ -102,16 +102,12 @@ window.onload = function () {
   for (let index = 0; index < coins.length; index++) {
     const coin = coins[index];
     coin.onmouseover = function (e) {
-      //   console.log("hit coin");
       score++;
       scoreboard.innerHTML = `Scores: ${score}`;
       e.target.style.display = "none";
       setTimeout(() => {
         e.target.style.display = "block";
       }, getRandomValue(4000, 10000, 1000));
-      //   setTimeout(() => {
-      //     e.target.style.display = "block";
-      //   }, 6000);
     };
   }
 
