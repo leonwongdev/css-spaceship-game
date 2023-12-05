@@ -28,7 +28,6 @@ window.onload = function () {
 
     // Reset the timer if timer already set
     if (timer) {
-      console.log("clear timer:", timer);
       clearInterval(timer);
     }
     gameTime = 30;

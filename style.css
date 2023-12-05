@@ -56,39 +56,29 @@ body {
   display: none;
 }
 
-/* .rock:hover ~ #game-over,
-#game-over:hover {
-  display: block;
-} */
-
 #game-board {
   background-color: black;
   color: white;
   overflow: hidden;
-}
-
-#game-board {
   width: 100%;
   height: 100%;
   display: none;
-  grid-template-columns: repeat(8, 1fr); /* Adjust width of columns as needed */
-  grid-template-rows: repeat(
-    5,
-    1fr
-  ); /* Adjust height of rows as needed */ /* Adjust the gap between cells as needed */
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.grid-item {
+  /* For Debugging */
+  /* border: 1px solid red; */
+  text-align: center;
+  font-size: 16px;
+  color: black;
 }
 
 #playBtn {
   width: 25vw;
   height: 2rem;
   background-color: lightgreen;
-}
-
-.grid-item {
-  /* border: 1px solid red;  */
-  text-align: center;
-  font-size: 16px;
-  color: black;
 }
 
 #spaceship {
@@ -131,11 +121,10 @@ body {
   position: absolute;
   /* width: 12.5%; */
   height: 13%;
-  /* aspect-ratio: 1; */
   object-fit: contain;
-  /* animation: rotate 3s linear infinite; */
-  /* border: 1px solid red; */
   pointer-events: auto;
+  /* For debugging */
+  /* border: 1px solid red; */
 }
 
 .coin {
