@@ -33,9 +33,8 @@ window.onload = function () {
     gameTime = 30;
     // Start a new timer when the game begins
     timer = setInterval(() => {
-      gameTime -= 1;
       timerEle.innerHTML = `Time Remain: ${gameTime}s`;
-
+      gameTime -= 1;
       // Ends game when 30s is passed
       if (gameTime <= 0) {
         highestScore = checkEndGame(score, highestScore, true, timer);
