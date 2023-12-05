@@ -42,6 +42,9 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: black;
+  /* source: https://unsplash.com/photos/galaxy-0o_GEzyargo */
+  background-image: url(./assets/images/spacebg.jpg);
+  background-size: cover;
   color: white;
   height: 100vh;
   width: 100vw;
