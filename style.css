@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 *::before,
@@ -63,6 +64,7 @@ body {
 #game-board {
   background-color: black;
   color: white;
+  overflow: hidden;
 }
 
 #game-board {
@@ -240,7 +242,7 @@ body {
 
 @keyframes move-horizontally {
   0% {
-    right: 100vw;
+    right: 0px;
   }
   100% {
     left: -10vw;

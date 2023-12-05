@@ -39,7 +39,7 @@ window.onload = function () {
 
       // Ends game when 30s is passed
       if (gameTime <= 0) {
-        showGameScreen(score, highestScore, true, timer);
+        highestScore = checkEndGame(score, highestScore, true, timer);
       }
     }, 1000);
   };
@@ -74,7 +74,7 @@ window.onload = function () {
   for (let index = 0; index < rocks.length; index++) {
     const rock = rocks[index];
     rock.onmouseover = function (e) {
-      showGameScreen(score, highestScore, false, timer);
+      highestScore = checkEndGame(score, highestScore, false, timer);
     };
   }
 
@@ -118,7 +118,7 @@ window.onload = function () {
 
   createStars();
 
-  function showGameScreen(score, highestScore, isWinner, timer) {
+  function checkEndGame(score, highestScore, isWinner, timer) {
     // display tutorial screen
     // hides the gameboard
     clearInterval(timer);
@@ -131,6 +131,7 @@ window.onload = function () {
     gameOverMsg.innerHTML = isWinner
       ? `Times Up! Congrats! You spaceship safely finished the trip. You score is ${score}. Your highest score is ${highestScore}.`
       : `Oh No! You crashed! Game Over! You scored ${score} points. Your highest score is ${highestScore}.`;
+    return highestScore;
   }
 };
 
