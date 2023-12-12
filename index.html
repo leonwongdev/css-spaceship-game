@@ -1,93 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space Travel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="scoreboard">Score: 0</div>
     <div id="timer">Time remain: 30s</div>
     <div id="game-board">
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div id="spaceship" class="spaceship">
-            <img src="assets/images/spaceship.png" alt="Spaceship">
-        </div>
-        <img src="assets/images/asteroid.png" alt="Asteroid" class="space-object rock" id="rock-1">
-        <img src="assets/images/asteroid.png" alt="Asteroid" class="space-object rock" id="rock-2">
-        <img src="assets/images/asteroid.png" alt="Asteroid" class="space-object rock" id="rock-3">
-        <img src="assets/images/asteroid.png" alt="Asteroid" class="space-object rock" id="rock-4">
-        <img src="assets/images/asteroid.png" alt="Asteroid" class="space-object rock" id="rock-5">
-        <img src="assets/images/coin.png" alt="Coin" class="space-object coin" id="coin-1">
-        <img src="assets/images/coin.png" alt="Coin" class="space-object coin" id="coin-2">
-        <img src="assets/images/coin.png" alt="Coin" class="space-object coin" id="coin-3">
-        <img src="assets/images/coin.png" alt="Coin" class="space-object coin" id="coin-4">
-        <img src="assets/images/coin.png" alt="Coin" class="space-object coin" id="coin-5">
-
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div id="spaceship" class="spaceship">
+        <img src="assets/images/spaceship.png" alt="Spaceship" />
+      </div>
+      <img
+        src="assets/images/asteroid.png"
+        alt="Asteroid"
+        class="space-object rock"
+        id="rock-1"
+      />
+      <img
+        src="assets/images/asteroid.png"
+        alt="Asteroid"
+        class="space-object rock"
+        id="rock-2"
+      />
+      <img
+        src="assets/images/asteroid.png"
+        alt="Asteroid"
+        class="space-object rock"
+        id="rock-3"
+      />
+      <img
+        src="assets/images/asteroid.png"
+        alt="Asteroid"
+        class="space-object rock"
+        id="rock-4"
+      />
+      <img
+        src="assets/images/asteroid.png"
+        alt="Asteroid"
+        class="space-object rock"
+        id="rock-5"
+      />
+      <img
+        src="assets/images/coin.png"
+        alt="Coin"
+        class="space-object coin"
+        id="coin-1"
+      />
+      <img
+        src="assets/images/coin.png"
+        alt="Coin"
+        class="space-object coin"
+        id="coin-2"
+      />
+      <img
+        src="assets/images/coin.png"
+        alt="Coin"
+        class="space-object coin"
+        id="coin-3"
+      />
+      <img
+        src="assets/images/coin.png"
+        alt="Coin"
+        class="space-object coin"
+        id="coin-4"
+      />
+      <img
+        src="assets/images/coin.png"
+        alt="Coin"
+        class="space-object coin"
+        id="coin-5"
+      />
     </div>
     <div id="game-screen">
-        <h1>Space Travel Game - Tutorial</h1>
-        <h2>Chromium browser is recommended to play this game for best performance</h2>
-        <p>Move your mouse / cursor to control the position of your spaceship!</p>
-        <p>Avoid colliding with the asteroid and
-            earn as many coins as possible!</p>
-        <p>
-            You lose as soon as you crash into an asteroid!</p>
-        <p>
-            Let's see how many coins
-            can you get WITHIN 30s!
-        </p>
+      <h1>Space Travel Game - Tutorial</h1>
+      <h2>
+        Chrome or Chromium browser is recommended to play this game for best
+        performance
+      </h2>
+      <p>Move your mouse / cursor to control the position of your spaceship!</p>
+      <p>
+        Avoid colliding with the asteroid and earn as many coins as possible!
+      </p>
+      <p>You lose as soon as you crash into an asteroid!</p>
+      <p>Let's see how many coins can you get WITHIN 30s!</p>
 
-        <div id="gameOverScreen">
-            <h2 id="gameOverTitle">Game Over</h2>
-            <p id="gameOverMsg"></p>
-
-        </div>
-        <button id="playBtn">Start New Game</button>
+      <div id="gameOverScreen">
+        <h2 id="gameOverTitle">Game Over</h2>
+        <p id="gameOverMsg"></p>
+      </div>
+      <button id="playBtn">Start New Game</button>
     </div>
-</body>
-
+  </body>
 </html>
