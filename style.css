@@ -259,7 +259,7 @@ body {
   position: absolute;
   background-color: white;
   border-radius: 50%;
-  animation: twinkle 1s infinite;
+  animation: twinkle 2s infinite;
 }
 
 @keyframes twinkle {
