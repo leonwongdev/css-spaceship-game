@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=VT323&display=swap");
 :root {
   --coin-move-speed: 2.5s;
 }
@@ -11,6 +13,8 @@ body {
   padding: 0;
   text-align: center;
   overflow: hidden;
+  font-family: "VT323", "Pixelify Sans", sans-serif;
+  font-size: 1.1rem;
 }
 
 *::before,
@@ -43,8 +47,8 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: black;
-  /* source: https://unsplash.com/photos/galaxy-0o_GEzyargo */
-  background-image: url(./assets/images/spacebg.jpg);
+  /* source: https://w0.peakpx.com/wallpaper/207/857/HD-wallpaper-artistic-pixel-art-space-moon.jpg */
+  background-image: url("https://w0.peakpx.com/wallpaper/207/857/HD-wallpaper-artistic-pixel-art-space-moon.jpg");
   background-size: cover;
   color: white;
   height: 100vh;
@@ -79,7 +83,13 @@ body {
 #playBtn {
   width: 25vw;
   height: 2rem;
-  background-color: lightgreen;
+  background-color: rgb(79, 149, 79);
+  color: white;
+  letter-spacing: 3px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: semi-bold;
 }
 
 #spaceship {
